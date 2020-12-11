@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>macOSRuntimeTest.xcscheme_^#shared#^_</key>
+		<key>iOSRuntimeTest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>macOSRuntimeTest.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>objc-trampolines.xcscheme_^#shared#^_</key>
 		<dict>
@@ -27,6 +32,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>885440B02583200700ABEF66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88627FED258345DC00D61EE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88627FFA2583636800D61EE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

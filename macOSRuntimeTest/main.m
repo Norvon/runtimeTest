@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[]) {
+    
+    NSString *s = [[NSString alloc] init];
+    
     @autoreleasepool {
         // insert code here...
         NSLog(@"Hello, World!");
