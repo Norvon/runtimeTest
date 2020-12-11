@@ -37,6 +37,7 @@ extern "C" {
 #endif /* __cplusplus */
 
 
+
 #define DYLD_MACOSX_VERSION_10_11 0x000A0B00
 
 #define DYLD_MACOSX_VERSION_10_12 0x000A0C00
@@ -45,8 +46,10 @@ extern "C" {
 
 #define DYLD_MACOSX_VERSION_10_14 0x000A0E00
 
-
-
+#define DYLD_IOS_VERSION_10_0 0x000B0B00
+#define DYLD_IOS_VERSION_11_0 0x000B0C00
+#define DYLD_IOS_VERSION_12_0 0x000B0D00
+#define DYLD_IOS_VERSION_13_0 0x000B0F00
 
 //
 // private interface between libSystem.dylib and dyld
