@@ -944,27 +944,36 @@ class StripedMap {
 // Note that weak_entry_t knows about this encoding.
 template <typename T>
 class DisguisedPtr {
+    // unsigned long 类型的 value 足够保存转化为整数的内存地址
     uintptr_t value;
 
     static uintptr_t disguise(T* ptr) {
+        // 把 T 的地址转化为 unsigned long 并取负值
         return -(uintptr_t)ptr;
     }
 
     static T* undisguise(uintptr_t val) {
+        // 把 unsigned long 类型的 val 转换为指针，对应上面的 disguise 函数
         return (T*)-val;
     }
 
  public:
+    // 构造函数
     DisguisedPtr() { }
+    // 初始化列表 ptr 初始化 value 成员变量
     DisguisedPtr(T* ptr) 
         : value(disguise(ptr)) { }
+    // 复制构造函数
     DisguisedPtr(const DisguisedPtr<T>& ptr) 
         : value(ptr.value) { }
 
+    // 重载操作符
+    // T* 赋值函数，把一个 T 指针复制给 DisguisedPtr<T> 类型变量时，直接发生地址到整数的转化
     DisguisedPtr<T>& operator = (T* rhs) {
         value = disguise(rhs);
         return *this;
     }
+    // DisguisedPtr<T>& 引用赋值函数
     DisguisedPtr<T>& operator = (const DisguisedPtr<T>& rhs) {
         value = rhs.value;
         return *this;
