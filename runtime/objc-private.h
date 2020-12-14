@@ -978,17 +978,21 @@ class DisguisedPtr {
         value = rhs.value;
         return *this;
     }
-
+    
     operator T* () const {
+        // unsigned long value 转回指针
         return undisguise(value);
     }
-    T* operator -> () const { 
+    T* operator -> () const {
+        // unsigned long value 转回指针
         return undisguise(value);
     }
-    T& operator * () const { 
+    T& operator * () const {
+        // 转化为指针并取出该指针指向的内容
         return *undisguise(value);
     }
     T& operator [] (size_t i) const {
+        // unsigned long value 转回指针，再找到指定下标 i 位置的值
         return undisguise(value)[i];
     }
 
