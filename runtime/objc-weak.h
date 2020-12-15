@@ -53,6 +53,8 @@ reclamation.
 // The address of a __weak variable.
 // These pointers are stored disguised so memory analysis tools
 // don't see lots of interior pointers from the weak table into objects.
+
+// 这里 T 是 objc_object *, 那么 DisguisedPtr 里的 T* 就是 objc_objet**，即为指针的指针
 typedef DisguisedPtr<objc_object *> weak_referrer_t;
 
 #if __LP64__

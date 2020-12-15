@@ -101,15 +101,23 @@ struct RefcountMapValuePurgeable {
 typedef objc::DenseMap<DisguisedPtr<objc_object>,size_t,RefcountMapValuePurgeable> RefcountMap;
 
 // Template parameters.
+// 是否有旧值
 enum HaveOld { DontHaveOld = false, DoHaveOld = true };
+// 是否有新值
 enum HaveNew { DontHaveNew = false, DoHaveNew = true };
 
 struct SideTable {
+    // 每张 SideTable 都自带一把锁
     spinlock_t slock;
+    // 管理对象的引用计数
     RefcountMap refcnts;
+    // 以 object ids 为 keys, 以 weak_entry_t 为 values 的哈希表，
+    // 从中找到的对象的 weak_entry_t
     weak_table_t weak_table;
 
+    // 构造函数，把 weak_table 的空间置为 0
     SideTable() {
+        // 把从& weak_table 位置开始的长度为 sizeof(weak_table) 的内存空间置为 0
         memset(&weak_table, 0, sizeof(weak_table));
     }
 
