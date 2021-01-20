@@ -26,9 +26,26 @@
 }
 @end
 @implementation Student
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        NSLog(@"==[self class]==%@",NSStringFromClass([self class]));
+        [super class];
+        NSLog(@"==[super class]==%@",NSStringFromClass([super class]));
+    }
+    return self;
+}
+
 @end
 
+
+
+
 int main(int argc, const char * argv[]) {
+    int arr[7] = {10,20,30,40,50,60,70}; //在内存中高地址向低地址分配连续的 类型所占的空间字节数 * 数组内元素的个数 7 * 4 = 28 个字节空间
+    int* p1 = arr;   
+    
     
     
     NSLog(@"%zd %zd  %zd",
@@ -58,6 +75,9 @@ int main(int argc, const char * argv[]) {
     Class objectClass = [NSObject class];
     Class objectMetaClass = object_getClass([NSObject class]);
     NSLog(@"%p %p %p", object, objectClass, objectMetaClass);
+    
+    Student *s = [[Student alloc] init];
+    
     
     
     return 0;
